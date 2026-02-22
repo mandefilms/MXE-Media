@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Production — MXE Media</title>
+<meta name="description" content="MXE Media production services. Multicam interviews, documentary content, b-roll, aerial, and branded content for agencies, brands, and media companies."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+    --black: #0a0a0a;
+    --off-black: #1a1a1a;
+    --charcoal: #2a2a2a;
+    --dark-grey: #444;
+    --mid-grey: #888;
+    --light-grey: #f4f3f1;
+    --off-white: #faf9f7;
+    --white: #ffffff;
+    --amber: #c8794a;
+    --amber-light: #d4915f;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+.section-label { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
+.section-label::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.25; }
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s ease; }
+nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
+.nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.nav-logo { font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--black); text-decoration: none; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dark-grey); text-decoration: none; transition: color 0.3s ease; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--black); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--amber); }
+
+/* ── HERO ── */
+.prod-hero { padding: 140px 0 60px 0; text-align: center; background: var(--white); }
+.prod-hero-tag { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 36px; }
+.prod-hero-image { width: 100%; max-width: 900px; height: 420px; margin: 0 auto; background: var(--light-grey); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); }
+
+/* ── EQUIPMENT BAND ── */
+.equipment-band { padding: 28px 0; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); text-align: center; background: var(--white); }
+.equipment-text { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-grey); }
+
+/* ── HOW WE WORK ── */
+.process-section { padding: 80px 0; background: var(--white); }
+.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; margin-top: 10px; }
+.process-step { text-align: left; }
+.process-number { font-family: var(--font-display); font-size: 42px; font-weight: 400; color: var(--amber); line-height: 1; margin-bottom: 14px; }
+.process-title { font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 12px; color: var(--black); }
+.process-desc { font-family: var(--font-body); font-size: 14px; font-weight: 400; line-height: 1.7; color: var(--dark-grey); }
+
+/* ── SERVICES 2-COLUMN (IKAL style) ── */
+.services-section { padding: 80px 0 90px 0; background: var(--off-black); color: var(--white); }
+.services-section .section-label { color: rgba(255,255,255,0.45); }
+.services-section .section-label::after { background: rgba(255,255,255,0.12); }
+.services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); }
+.service-item { padding: 36px 32px; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; transition: background 0.3s ease; }
+.service-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
+.service-item:hover { background: rgba(255,255,255,0.03); }
+.service-item h3 { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.service-item h3::before { content: ''; width: 6px; height: 6px; background: var(--amber); border-radius: 50%; flex-shrink: 0; }
+.service-item p { font-family: var(--font-body); font-size: 13.5px; font-weight: 400; line-height: 1.7; color: rgba(255,255,255,0.6); }
+.service-item ul { list-style: none; margin-top: 10px; }
+.service-item ul li { font-family: var(--font-body); font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.55); padding-left: 16px; position: relative; margin-bottom: 5px; line-height: 1.6; }
+.service-item ul li::before { content: '—'; position: absolute; left: 0; color: var(--amber); }
+
+/* ── HOW WE WORK DETAIL + WHAT WE DELIVER ── */
+.deliver-section { padding: 80px 0 90px 0; background: var(--white); }
+.deliver-section .section-label { color: var(--dark-grey); }
+.deliver-section .section-label::after { background: rgba(0,0,0,0.1); }
+
+.deliver-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+
+.deliver-prose h3 { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; color: var(--black); }
+.deliver-prose p { font-family: var(--font-body); font-size: 14px; font-weight: 400; line-height: 1.75; color: var(--dark-grey); margin-bottom: 14px; }
+
+.deliver-cards { display: grid; grid-template-columns: 1fr; gap: 16px; }
+.deliver-card { background: var(--light-grey); padding: 28px 24px; border-radius: 4px; border-left: 3px solid var(--amber); transition: transform 0.3s ease; }
+.deliver-card:hover { transform: translateX(4px); }
+.deliver-card h4 { font-family: var(--font-body); font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px; color: var(--black); }
+.deliver-card p { font-family: var(--font-body); font-size: 13px; font-weight: 400; line-height: 1.65; color: var(--dark-grey); }
+
+/* ── SECOND TESTIMONIAL ── */
+.testimonial-bar { padding: 24px 0; background: var(--light-grey); text-align: center; }
+.testimonial-bar-text { font-family: var(--font-display); font-size: 18px; font-weight: 400; font-style: italic; color: var(--charcoal); }
+.testimonial-bar-text span { font-family: var(--font-body); font-style: normal; font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); margin-left: 16px; }
+
+/* ── CONTACT CTA ── */
+.contact-section { padding: 80px 0; background: var(--white); text-align: center; }
+.contact-heading { font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--black); margin-bottom: 20px; }
+.contact-sub { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark-grey); margin-bottom: 12px; }
+.contact-email { font-family: var(--font-body); font-size: 14px; font-weight: 400; color: var(--mid-grey); text-decoration: none; margin-bottom: 36px; display: inline-block; transition: color 0.3s ease; }
+.contact-email:hover { color: var(--amber); }
+.cta-button { display: inline-block; font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--black); text-decoration: none; padding: 16px 44px; border: 1.5px solid var(--black); transition: all 0.3s ease; }
+.cta-button:hover { background: var(--black); color: var(--white); }
+
+/* ── FOOTER ── */
+footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: var(--font-body); font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s ease; }
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .process-grid { grid-template-columns: 1fr; gap: 36px; }
+    .services-grid { grid-template-columns: 1fr; }
+    .service-item:nth-child(odd) { border-right: none; }
+    .deliver-layout { grid-template-columns: 1fr; gap: 36px; }
+}
+@media (max-width: 600px) {
+    .container { padding: 0 24px; }
+    .nav-inner { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+    .prod-hero { padding: 110px 0 50px 0; }
+    .prod-hero-image { height: 260px; }
+    .process-number { font-size: 34px; }
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">MXE Media</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="production.html" class="active">Production</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="prod-hero">
+    <div class="container">
+        <p class="prod-hero-tag fade-up">| Production Services |</p>
+        <div class="prod-hero-image fade-up">Hero Image — On-Set Production Photo</div>
+    </div>
+</section>
+
+<!-- EQUIPMENT BAND -->
+<div class="equipment-band">
+    <p class="equipment-text">
+        Sony Cinema Cameras &nbsp;·&nbsp; Professional Audio &nbsp;·&nbsp; LED Lighting &nbsp;·&nbsp; Part 107 Drone &nbsp;·&nbsp; Teleprompter &nbsp;·&nbsp; DIT Workflow
+    </p>
+</div>
+
+<!-- HOW WE WORK -->
+<section class="process-section">
+    <div class="container">
+        <div class="section-label fade-up">How We Work</div>
+        <div class="process-grid fade-up">
+            <div class="process-step">
+                <div class="process-number">01</div>
+                <div class="process-title">Brief</div>
+                <p class="process-desc">You send us the project details, brand guidelines, and delivery specs. We review everything and confirm the approach before we arrive.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">02</div>
+                <div class="process-title">Produce</div>
+                <p class="process-desc">We show up with a complete equipment package, adapt to the environment, and capture exactly what you need — interviews, b-roll, aerials, or all three.</p>
+            </div>
+            <div class="process-step">
+                <div class="process-number">03</div>
+                <div class="process-title">Deliver</div>
+                <p class="process-desc">Footage delivered to your specifications — on drives, cloud upload, or direct transfer. Organized, labeled, and ready for your edit or ours.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES & OFFERINGS (2-column IKAL style) -->
+<section class="services-section">
+    <div class="container">
+        <div class="section-label fade-up">Services &amp; Offerings</div>
+        <div class="services-grid fade-up">
+
+            <div class="service-item">
+                <h3>Multicam Interview Production</h3>
+                <p>Two and three-camera interview setups with matched Sony cinema cameras. Full lighting, professional audio, and teleprompter available for every shoot.</p>
+                <ul>
+                    <li>Executive profiles and thought leadership</li>
+                    <li>Customer and employee testimonials</li>
+                    <li>Panel discussions and round tables</li>
+                </ul>
+            </div>
+
+            <div class="service-item">
+                <h3>Documentary-Style Content</h3>
+                <p>Observational and narrative-driven shooting for brands and organizations that need authentic, character-focused stories captured in real environments.</p>
+                <ul>
+                    <li>Brand documentaries</li>
+                    <li>Impact and mission films</li>
+                    <li>Behind-the-scenes and day-in-the-life</li>
+                </ul>
+            </div>
+
+            <div class="service-item">
+                <h3>B-Roll &amp; Cinematic Coverage</h3>
+                <p>Supplemental footage shot to match your existing brand look. Facilities, products, processes, people at work, and environmental shots — all matched to your brief.</p>
+                <ul>
+                    <li>Product and facility walkthroughs</li>
+                    <li>Event and conference coverage</li>
+                    <li>Lifestyle and environmental footage</li>
+                </ul>
+            </div>
+
+            <div class="service-item">
+                <h3>Aerial &amp; Drone</h3>
+                <p>FAA Part 107 certified drone operation for aerial establishing shots, facility overviews, construction progress, real estate, and large-scale environmental coverage.</p>
+                <ul>
+                    <li>Facility and campus aerials</li>
+                    <li>Real estate and development</li>
+                    <li>Construction documentation</li>
+                </ul>
+            </div>
+
+            <div class="service-item">
+                <h3>Branded Content &amp; Social</h3>
+                <p>Short-form and long-form content produced to your brand standards for web, social platforms, internal communications, and marketing campaigns.</p>
+                <ul>
+                    <li>Social media video packages</li>
+                    <li>Campaign content and ad production</li>
+                    <li>Internal communications and training</li>
+                </ul>
+            </div>
+
+            <div class="service-item">
+                <h3>Remote &amp; Travel Production</h3>
+                <p>Field-ready production team with experience across 15+ countries and every type of environment — from boardrooms to construction sites to rural communities.</p>
+                <ul>
+                    <li>Multi-city and multi-location shoots</li>
+                    <li>International production</li>
+                    <li>Remote direction and live monitoring</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- HOW WE WORK (detail) + WHAT WE DELIVER ON SET -->
+<section class="deliver-section">
+    <div class="container">
+        <div class="section-label fade-up">On Set</div>
+        <div class="deliver-layout fade-up">
+
+            <div class="deliver-prose">
+                <h3>How We Work On Location</h3>
+                <p>We operate as a field production team supporting marketing agencies, production companies, and in-house creative teams. We work from your creative brief, shot list, or storyboard — or develop one with you based on your objectives.</p>
+                <p>Our two-person team handles directing, camera operation, lighting, audio, drone, and DIT simultaneously — with no communication lag between creative decision and technical execution. One team, one vision, zero confusion.</p>
+                <p>We're experienced with approval workflows, brand compliance reviews, remote direction via video link, and same-day turnaround when the timeline requires it.</p>
+            </div>
+
+            <div class="deliver-cards">
+                <div class="deliver-card">
+                    <h4>Organized Footage</h4>
+                    <p>All footage delivered organized by scene, labeled by camera angle and take, with matching audio files synced and ready for your editor.</p>
+                </div>
+                <div class="deliver-card">
+                    <h4>Technical Deliverables</h4>
+                    <p>ProRes, H.265, or raw formats to your spec. Color-matched multi-cam footage, broadcast-safe levels, and frame-accurate timecode across all cameras.</p>
+                </div>
+                <div class="deliver-card">
+                    <h4>Same-Day Selects</h4>
+                    <p>For time-sensitive projects, we provide same-day selects, proxy files, or rough assemblies uploaded before we leave the location.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<div class="testimonial-bar fade-up">
+    <p class="testimonial-bar-text">
+        "Mariessa and Evan were flexible and excelled at communication. Their footage turned out perfect."
+        <span>Nick Cooley — Southwire</span>
+    </p>
+</div>
+
+<!-- CONTACT CTA -->
+<section class="contact-section">
+    <div class="container fade-up">
+        <p class="contact-heading">Let's Work Together</p>
+        <p class="contact-sub">Tell us about your project.</p>
+        <a href="mailto:production@mxemedia.com" class="contact-email">production@mxemedia.com</a>
+        <br/><br/>
+        <a href="mailto:production@mxemedia.com" class="cta-button">Contact Us</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <p class="footer-copy">© 2026 MXE Media</p>
+        <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+</script>
+</body>
+</html>

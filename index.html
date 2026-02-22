@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>MXE Media — On-Location Production for Agencies and Brands</title>
+<meta name="description" content="MXE Media is a two-person production team with twenty years of on-location experience across four continents. Multicam interviews, documentary content, b-roll, and aerial for agencies, brands, and media companies."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+    --black: #0a0a0a;
+    --off-black: #1a1a1a;
+    --charcoal: #2a2a2a;
+    --dark-grey: #444;
+    --mid-grey: #888;
+    --light-grey: #f4f3f1;
+    --off-white: #faf9f7;
+    --white: #ffffff;
+    --amber: #c8794a;
+    --amber-light: #d4915f;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+
+.section-label {
+    font-family: var(--font-body); font-size: 11px; font-weight: 600;
+    letter-spacing: 3.5px; text-transform: uppercase;
+    display: flex; align-items: center; gap: 16px; margin-bottom: 40px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: currentColor; opacity: 0.25; }
+
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s ease; }
+nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
+.nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.nav-logo { font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--black); text-decoration: none; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dark-grey); text-decoration: none; transition: color 0.3s ease; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--black); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--amber); }
+
+/* ── HERO ── */
+.hero { padding: 140px 0 80px 0; text-align: center; background: var(--white); }
+.hero-tag { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 36px; }
+.hero-image-placeholder { width: 100%; max-width: 720px; height: 380px; margin: 0 auto 48px auto; background: var(--light-grey); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); overflow: hidden; }
+.hero-statement { font-family: var(--font-display); font-size: 26px; font-weight: 400; line-height: 1.65; color: var(--charcoal); max-width: 760px; margin: 0 auto 40px auto; }
+.hero-statement strong { font-weight: 500; color: var(--black); }
+.social-icons { display: flex; justify-content: center; gap: 20px; }
+.social-icons a { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; color: var(--mid-grey); text-decoration: none; transition: color 0.3s ease; font-size: 16px; }
+.social-icons a:hover { color: var(--black); }
+
+/* ── DESCRIPTOR BAND ── */
+.descriptor-band { padding: 28px 0; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); text-align: center; }
+.descriptor-text { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--dark-grey); }
+
+/* ── RECENT WORK ── */
+.work-section { background: var(--off-black); padding: 70px 0 80px 0; color: var(--white); }
+.work-section .section-label { color: rgba(255,255,255,0.5); }
+.work-section .section-label::after { background: rgba(255,255,255,0.15); }
+.work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.work-card { position: relative; aspect-ratio: 4/3; background: var(--charcoal); overflow: hidden; cursor: pointer; }
+.work-card-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; transition: background 0.4s ease; }
+.work-card:hover .work-card-overlay { background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.85) 100%); }
+.work-card-title { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; color: var(--white); margin-bottom: 3px; }
+.work-card-sub { font-family: var(--font-body); font-size: 11px; font-weight: 300; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
+
+/* ── WHAT WE BRING ── */
+.values-section { position: relative; padding: 90px 0 100px 0; background: var(--charcoal); color: var(--white); overflow: hidden; }
+.values-section::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(200,121,74,0.04) 0%, transparent 60%), radial-gradient(ellipse at 80% 30%, rgba(255,255,255,0.02) 0%, transparent 50%); pointer-events: none; }
+.values-section .section-label { color: rgba(255,255,255,0.45); position: relative; z-index: 1; }
+.values-section .section-label::after { background: rgba(255,255,255,0.12); }
+.values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; position: relative; z-index: 1; }
+.value-card { background: rgba(255,255,255,0.95); color: var(--black); padding: 36px 30px; border-radius: 4px; transition: transform 0.4s ease, box-shadow 0.4s ease; }
+.value-card:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+.value-card-icon { width: 48px; height: 48px; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; }
+.value-card-icon svg { width: 36px; height: 36px; stroke: var(--amber); stroke-width: 1.5; fill: none; }
+.value-card h3 { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: 14px; color: var(--black); }
+.value-card p { font-family: var(--font-body); font-size: 13.5px; font-weight: 400; line-height: 1.7; color: var(--dark-grey); }
+
+/* ── TESTIMONIAL ── */
+.testimonial-section { padding: 70px 0; background: var(--light-grey); text-align: center; }
+.testimonial-quote { font-family: var(--font-display); font-size: 24px; font-weight: 400; font-style: italic; line-height: 1.6; color: var(--charcoal); max-width: 700px; margin: 0 auto 24px auto; }
+.testimonial-attr { font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid-grey); }
+
+/* ── MAP ── */
+.map-section { padding: 70px 0 60px 0; background: var(--off-black); color: var(--white); text-align: center; }
+.map-section .section-label { color: rgba(255,255,255,0.45); }
+.map-section .section-label::after { background: rgba(255,255,255,0.12); }
+.map-placeholder { width: 100%; max-width: 800px; height: 400px; margin: 0 auto 30px auto; background: var(--charcoal); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); }
+.map-caption { font-family: var(--font-body); font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.5); letter-spacing: 0.5px; }
+.map-caption strong { color: rgba(255,255,255,0.8); font-weight: 500; }
+
+/* ── TRUSTED BY SCROLLING BAR ── */
+.trusted-bar { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 16px 0; overflow: hidden; position: relative; white-space: nowrap; }
+.trusted-bar-inner { display: flex; align-items: center; gap: 0; animation: scrollTrusted 25s linear infinite; width: max-content; }
+.trusted-bar-inner:hover { animation-play-state: paused; }
+@keyframes scrollTrusted { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+.trusted-item { display: flex; align-items: center; gap: 0; }
+.trusted-label { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-right: 20px; }
+.trusted-name { font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); transition: color 0.3s; }
+.trusted-name:hover { color: rgba(255,255,255,0.8); }
+.trusted-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); margin: 0 20px; flex-shrink: 0; }
+
+/* ── CONTACT CTA ── */
+.contact-section { padding: 100px 0; background: var(--white); text-align: center; }
+.contact-heading { font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--black); margin-bottom: 20px; }
+.contact-sub { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark-grey); margin-bottom: 12px; }
+.contact-email { font-family: var(--font-body); font-size: 14px; font-weight: 400; color: var(--mid-grey); text-decoration: none; margin-bottom: 36px; display: inline-block; transition: color 0.3s ease; }
+.contact-email:hover { color: var(--amber); }
+.cta-button { display: inline-block; font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--black); text-decoration: none; padding: 16px 44px; border: 1.5px solid var(--black); transition: all 0.3s ease; }
+.cta-button:hover { background: var(--black); color: var(--white); }
+
+/* ── FOOTER ── */
+footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); }
+.footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: var(--font-body); font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s ease; }
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .work-grid { grid-template-columns: repeat(2, 1fr); }
+    .values-grid { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 600px) {
+    .container { padding: 0 24px; }
+    .nav-inner { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+    .hero { padding: 110px 0 60px 0; }
+    .hero-statement { font-size: 20px; }
+    .hero-image-placeholder { height: 240px; }
+    .work-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
+    .testimonial-quote { font-size: 20px; }
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">MXE Media</a>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="production.html">Production</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <p class="hero-tag fade-up">| On-Location Production |</p>
+        <div class="hero-image-placeholder fade-up">Hero Image — BTS Production Photo</div>
+        <p class="hero-statement fade-up">
+            MXE Media is a two-person production team with twenty years of on-location experience across four continents&nbsp;— producing multicam interviews, documentary-style content, b-roll, and aerial to match any brand guideline, format, or delivery specification.
+        </p>
+        <div class="social-icons fade-up">
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg></a>
+            <a href="#" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="8" y1="11" x2="8" y2="17"/><line x1="8" y1="7" x2="8" y2="7.01" stroke-width="2.5"/><path d="M12 11v6M12 13c0-2 1.5-2.5 3-2.5s3 .5 3 2.5v4"/></svg></a>
+            <a href="#" aria-label="Vimeo"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10.5c-.1 2.2-1.6 5.2-4.7 9-3.2 3.9-5.9 5.9-8.1 5.9-1.4 0-2.5-1.3-3.4-3.8L3 14.5C2.4 12 1.8 10.6 1 10.6c-.1 0-.6.3-1.4.8L0 10l3.4-3c1.5-1.3 2.7-2 3.4-2 1.8-.2 2.9 1.1 3.3 3.7.4 2.8.7 4.6.9 5.2.5 2.3 1 3.4 1.7 3.4.5 0 1.2-.8 2.1-2.3.9-1.5 1.4-2.7 1.5-3.5.1-1.4-.4-2.1-1.6-2.1-.6 0-1.2.1-1.8.4 1.2-3.9 3.4-5.8 6.7-5.8 2.5.1 3.6 1.6 3.5 4.5z"/></svg></a>
+        </div>
+    </div>
+</section>
+
+<!-- DESCRIPTOR BAND -->
+<div class="descriptor-band">
+    <div class="descriptor-text">Interviews &nbsp;·&nbsp; Documentary &nbsp;·&nbsp; Branded Content &nbsp;·&nbsp; B-Roll &nbsp;·&nbsp; Aerial</div>
+</div>
+
+<!-- RECENT WORK -->
+<section class="work-section">
+    <div class="container">
+        <div class="section-label fade-up">Recent Work</div>
+        <div class="work-grid fade-up">
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Southwire</div><div class="work-card-sub">Corporate Interview Series</div></div></div>
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Habitat for Humanity</div><div class="work-card-sub">Documentary Campaign</div></div></div>
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Popular Mechanics</div><div class="work-card-sub">Branded Content</div></div></div>
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">BBC Broadcast</div><div class="work-card-sub">International Production</div></div></div>
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Heritage Modern</div><div class="work-card-sub">Social Media Content</div></div></div>
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Nonprofit Profile</div><div class="work-card-sub">Mission-Driven Storytelling</div></div></div>
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Corporate Comms</div><div class="work-card-sub">Internal Communications</div></div></div>
+            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Anjunadeep</div><div class="work-card-sub">Brand Partnership</div></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- WHAT WE BRING -->
+<section class="values-section">
+    <div class="container">
+        <div class="section-label fade-up">What We Bring</div>
+        <div class="values-grid fade-up">
+            <div class="value-card">
+                <div class="value-card-icon"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><path d="M12 18l4 4 8-8"/></svg></div>
+                <h3>Adaptive Approach</h3>
+                <p>Every shoot is a different problem to solve. We adjust our strategy, setup, and creative approach based on the subject, the environment, and the goal — not a one-size-fits-all template.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-card-icon"><svg viewBox="0 0 36 36"><rect x="6" y="6" width="24" height="24" rx="3"/><line x1="6" y1="14" x2="30" y2="14"/><line x1="14" y1="6" x2="14" y2="30"/></svg></div>
+                <h3>On-Brand Delivery</h3>
+                <p>We work within your brand guidelines, technical specs, and approval workflows. Whatever the format, platform, or style guide — we match it precisely and deliver to your exact requirements.</p>
+            </div>
+            <div class="value-card">
+                <div class="value-card-icon"><svg viewBox="0 0 36 36"><circle cx="18" cy="18" r="15"/><ellipse cx="18" cy="18" rx="15" ry="6"/><line x1="18" y1="3" x2="18" y2="33"/></svg></div>
+                <h3>Production Experience</h3>
+                <p>Twenty years across boardrooms, construction sites, rural communities, and high-security facilities in 15+ countries. Broadcast networks, Fortune 500 brands, and mission-driven organizations worldwide.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIAL -->
+<section class="testimonial-section fade-up">
+    <div class="container">
+        <p class="testimonial-quote">"The footage we got from MXE was the best footage our Executive Producer had ever seen come from a remote crew."</p>
+        <p class="testimonial-attr">Jimmy Cavalieri — Agency Producer</p>
+    </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+    <div class="container">
+        <div class="section-label fade-up">Where We've Worked</div>
+        <div class="map-placeholder fade-up">Location Map — PNG Placeholder</div>
+        <p class="map-caption fade-up"><strong>Based in Charlotte, NC</strong> &nbsp;·&nbsp; Available worldwide</p>
+    </div>
+</section>
+
+<!-- TRUSTED BY SCROLLING BAR -->
+<div class="trusted-bar">
+    <div class="trusted-bar-inner">
+        <div class="trusted-item">
+            <span class="trusted-label">Trusted By</span><span class="trusted-dot"></span>
+            <span class="trusted-name">BBC</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Hearst TV</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Popular Mechanics</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Southwire</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Securitas</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Habitat for Humanity</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Anjunadeep</span><span class="trusted-dot"></span>
+        </div>
+        <div class="trusted-item">
+            <span class="trusted-label">Trusted By</span><span class="trusted-dot"></span>
+            <span class="trusted-name">BBC</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Hearst TV</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Popular Mechanics</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Southwire</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Securitas</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Habitat for Humanity</span><span class="trusted-dot"></span>
+            <span class="trusted-name">Anjunadeep</span><span class="trusted-dot"></span>
+        </div>
+    </div>
+</div>
+
+<!-- CONTACT CTA -->
+<section class="contact-section">
+    <div class="container fade-up">
+        <p class="contact-heading">Let's Work Together</p>
+        <p class="contact-sub">Tell us about your project.</p>
+        <a href="mailto:production@mxemedia.com" class="contact-email">production@mxemedia.com</a>
+        <br/><br/>
+        <a href="mailto:production@mxemedia.com" class="cta-button">Contact Us</a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <p class="footer-copy">© 2026 MXE Media</p>
+        <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+</script>
+</body>
+</html>

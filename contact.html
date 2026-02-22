@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Contact — MXE Media</title>
+<meta name="description" content="Get in touch with MXE Media. On-location production for agencies, brands, and media companies. Based in Charlotte, NC — available worldwide."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+    --black: #0a0a0a;
+    --off-black: #1a1a1a;
+    --charcoal: #2a2a2a;
+    --dark-grey: #444;
+    --mid-grey: #888;
+    --light-grey: #f4f3f1;
+    --off-white: #faf9f7;
+    --white: #ffffff;
+    --amber: #c8794a;
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body: 'Outfit', -apple-system, sans-serif;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font-body); color: var(--black); background: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+.container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
+.fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+
+/* ── NAV ── */
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s ease; }
+nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
+.nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
+.nav-logo { font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--black); text-decoration: none; }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dark-grey); text-decoration: none; transition: color 0.3s ease; position: relative; }
+.nav-links a:hover, .nav-links a.active { color: var(--black); }
+.nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--amber); }
+
+/* ── CONTACT PAGE ── */
+.contact-hero { padding: 160px 0 40px 0; text-align: center; }
+.contact-hero-tag { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 32px; }
+.contact-hero-heading { font-family: var(--font-display); font-size: 42px; font-weight: 400; color: var(--black); margin-bottom: 20px; line-height: 1.3; }
+.contact-hero-sub { font-family: var(--font-body); font-size: 15px; font-weight: 400; line-height: 1.7; color: var(--dark-grey); max-width: 560px; margin: 0 auto; }
+
+.contact-body { padding: 60px 0 100px 0; }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+
+/* Left: Form */
+.contact-form label { display: block; font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--dark-grey); margin-bottom: 8px; }
+.contact-form input,
+.contact-form textarea,
+.contact-form select { width: 100%; font-family: var(--font-body); font-size: 14px; font-weight: 400; color: var(--black); background: var(--light-grey); border: 1px solid rgba(0,0,0,0.08); padding: 14px 16px; margin-bottom: 24px; border-radius: 2px; transition: border-color 0.3s ease; outline: none; }
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus { border-color: var(--amber); }
+.contact-form textarea { resize: vertical; min-height: 140px; }
+.contact-form button { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--black); background: transparent; padding: 16px 44px; border: 1.5px solid var(--black); cursor: pointer; transition: all 0.3s ease; }
+.contact-form button:hover { background: var(--black); color: var(--white); }
+
+/* Right: Info */
+.contact-info { padding-top: 10px; }
+.contact-info-block { margin-bottom: 36px; }
+.contact-info-label { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 2.5px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 10px; }
+.contact-info-value { font-family: var(--font-body); font-size: 15px; font-weight: 400; color: var(--black); line-height: 1.7; }
+.contact-info-value a { color: var(--black); text-decoration: none; transition: color 0.3s; }
+.contact-info-value a:hover { color: var(--amber); }
+
+.contact-social { display: flex; gap: 16px; margin-top: 8px; }
+.contact-social a { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border: 1px solid rgba(0,0,0,0.1); border-radius: 2px; color: var(--dark-grey); text-decoration: none; transition: all 0.3s ease; }
+.contact-social a:hover { border-color: var(--amber); color: var(--amber); }
+
+/* ── LOCATION BAND ── */
+.location-band { padding: 28px 0; border-top: 1px solid rgba(0,0,0,0.06); text-align: center; background: var(--light-grey); }
+.location-text { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); }
+
+/* ── FOOTER ── */
+footer { padding: 32px 0; background: var(--black); }
+.footer-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer-copy { font-family: var(--font-body); font-size: 11px; font-weight: 400; color: rgba(255,255,255,0.3); letter-spacing: 1px; }
+.footer-links { display: flex; gap: 20px; }
+.footer-links a { font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s ease; }
+.footer-links a:hover { color: rgba(255,255,255,0.6); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+@media (max-width: 600px) {
+    .container { padding: 0 24px; }
+    .nav-inner { padding: 0 24px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+    .contact-hero { padding: 120px 0 30px 0; }
+    .contact-hero-heading { font-size: 32px; }
+    .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+    <div class="nav-inner">
+        <a href="index.html" class="nav-logo">MXE Media</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="production.html">Production</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+    <div class="container fade-up">
+        <p class="contact-hero-tag">| Get In Touch |</p>
+        <h1 class="contact-hero-heading">Tell us about your project.</h1>
+        <p class="contact-hero-sub">We're ready to collaborate in-person or remotely, anywhere in the world. Email us directly or use the form below.</p>
+    </div>
+</section>
+
+<!-- CONTACT BODY -->
+<section class="contact-body">
+    <div class="container">
+        <div class="contact-grid fade-up">
+
+            <!-- Form -->
+            <form class="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact"/>
+                <p style="display:none"><label>Don't fill this out: <input name="bot-field"/></label></p>
+
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required placeholder="Your name"/>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required placeholder="your@email.com"/>
+
+                <label for="company">Company / Organization</label>
+                <input type="text" id="company" name="company" placeholder="Agency, brand, or organization"/>
+
+                <label for="project-type">Project Type</label>
+                <select id="project-type" name="project-type">
+                    <option value="" disabled selected>Select a project type</option>
+                    <option value="interview">Interview Production</option>
+                    <option value="documentary">Documentary Content</option>
+                    <option value="branded">Branded Content</option>
+                    <option value="broll">B-Roll / Coverage</option>
+                    <option value="aerial">Aerial / Drone</option>
+                    <option value="multi">Multi-Location Project</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="message">Project Details</label>
+                <textarea id="message" name="message" placeholder="Location, timeline, deliverables, and anything else we should know."></textarea>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <!-- Info -->
+            <div class="contact-info">
+                <div class="contact-info-block">
+                    <p class="contact-info-label">Email</p>
+                    <p class="contact-info-value"><a href="mailto:production@mxemedia.com">production@mxemedia.com</a></p>
+                </div>
+
+                <div class="contact-info-block">
+                    <p class="contact-info-label">Based In</p>
+                    <p class="contact-info-value">Charlotte, NC</p>
+                </div>
+
+                <div class="contact-info-block">
+                    <p class="contact-info-label">Available</p>
+                    <p class="contact-info-value">Worldwide</p>
+                </div>
+
+                <div class="contact-info-block">
+                    <p class="contact-info-label">Connect</p>
+                    <div class="contact-social">
+                        <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg></a>
+                        <a href="#" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="3"/><line x1="8" y1="11" x2="8" y2="17"/><line x1="8" y1="7" x2="8" y2="7.01" stroke-width="2.5"/><path d="M12 11v6M12 13c0-2 1.5-2.5 3-2.5s3 .5 3 2.5v4"/></svg></a>
+                        <a href="#" aria-label="Vimeo"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10.5c-.1 2.2-1.6 5.2-4.7 9-3.2 3.9-5.9 5.9-8.1 5.9-1.4 0-2.5-1.3-3.4-3.8L3 14.5C2.4 12 1.8 10.6 1 10.6c-.1 0-.6.3-1.4.8L0 10l3.4-3c1.5-1.3 2.7-2 3.4-2 1.8-.2 2.9 1.1 3.3 3.7.4 2.8.7 4.6.9 5.2.5 2.3 1 3.4 1.7 3.4.5 0 1.2-.8 2.1-2.3.9-1.5 1.4-2.7 1.5-3.5.1-1.4-.4-2.1-1.6-2.1-.6 0-1.2.1-1.8.4 1.2-3.9 3.4-5.8 6.7-5.8 2.5.1 3.6 1.6 3.5 4.5z"/></svg></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- LOCATION BAND -->
+<div class="location-band">
+    <p class="location-text">Charlotte, NC &nbsp;·&nbsp; London &nbsp;·&nbsp; Worldwide</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <p class="footer-copy">© 2026 MXE Media</p>
+        <div class="footer-links">
+            <a href="#">Instagram</a>
+            <a href="#">YouTube</a>
+            <a href="#">LinkedIn</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.12 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+</script>
+</body>
+</html>
