@@ -128,6 +128,21 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 .footer-links a { font-family: var(--font-body); font-size: 11px; color: rgba(255,255,255,0.3); text-decoration: none; transition: color 0.3s ease; }
 .footer-links a:hover { color: rgba(255,255,255,0.6); }
 
+/* ── HERO IMAGE ── */
+.hero-image-wrapper { width: 100%; max-width: 720px; height: 380px; margin: 0 auto 48px auto; overflow: hidden; }
+.hero-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ── MAP IMAGE ── */
+.map-image-wrapper { width: 100%; max-width: 800px; margin: 0 auto 30px auto; overflow: hidden; }
+.map-image { width: 100%; height: auto; display: block; }
+
+/* ── WORK CARD THUMBNAIL & PLAY BUTTON ── */
+.work-card { display: block; text-decoration: none; }
+.work-card-thumb { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.work-card-play { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.8); width: 48px; height: 48px; background: rgba(0,0,0,0.4); border: 1.5px solid rgba(255,255,255,0.6); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s ease; }
+.work-card-play svg { width: 16px; height: 16px; fill: white; margin-left: 3px; }
+.work-card:hover .work-card-play { opacity: 1; transform: translate(-50%, -50%) scale(1); background: rgba(200,121,74,0.7); }
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
     .work-grid { grid-template-columns: repeat(2, 1fr); }
@@ -140,7 +155,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
     .hero { padding: 110px 0 60px 0; }
     .hero-statement { font-size: 20px; }
-    .hero-image-placeholder { height: 240px; }
+    .hero-image-wrapper { height: 240px; }
     .work-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .testimonial-quote { font-size: 20px; }
     .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
@@ -165,7 +180,9 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <section class="hero">
     <div class="container">
         <p class="hero-tag fade-up">| On-Location Production |</p>
-        <div class="hero-image-placeholder fade-up">Hero Image — BTS Production Photo</div>
+        <div class="hero-image-wrapper fade-up">
+            <img src="mxe_website_hero_photo.jpg" alt="MXE Media on-location production" class="hero-image"/>
+        </div>
         <p class="hero-statement fade-up">
             MXE Media is a two-person production team with twenty years of on-location experience across four continents&nbsp;— producing multicam interviews, documentary-style content, b-roll, and aerial to match any brand guideline, format, or delivery specification.
         </p>
@@ -188,14 +205,78 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     <div class="container">
         <div class="section-label fade-up">Recent Work</div>
         <div class="work-grid fade-up">
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Southwire</div><div class="work-card-sub">Corporate Interview Series</div></div></div>
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Habitat for Humanity</div><div class="work-card-sub">Documentary Campaign</div></div></div>
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Popular Mechanics</div><div class="work-card-sub">Branded Content</div></div></div>
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">BBC Broadcast</div><div class="work-card-sub">International Production</div></div></div>
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Heritage Modern</div><div class="work-card-sub">Social Media Content</div></div></div>
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Nonprofit Profile</div><div class="work-card-sub">Mission-Driven Storytelling</div></div></div>
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Corporate Comms</div><div class="work-card-sub">Internal Communications</div></div></div>
-            <div class="work-card"><div class="work-card-overlay"><div class="work-card-title">Anjunadeep</div><div class="work-card-sub">Brand Partnership</div></div></div>
+            <!-- 1. Securitas -->
+            <a class="work-card" href="https://youtu.be/SGStI013AKY" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/SGStI013AKY/hqdefault.jpg" alt="Securitas" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Securitas</div>
+                    <div class="work-card-sub">Corporate Documentary</div>
+                </div>
+            </a>
+            <!-- 2. Popular Mechanics -->
+            <a class="work-card" href="https://youtu.be/gZeSRpGceHY" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/gZeSRpGceHY/hqdefault.jpg" alt="Popular Mechanics" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Popular Mechanics</div>
+                    <div class="work-card-sub">Branded Editorial Content</div>
+                </div>
+            </a>
+            <!-- 3. Southwire -->
+            <a class="work-card" href="https://youtu.be/_k-718ua3IE" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/_k-718ua3IE/hqdefault.jpg" alt="Southwire" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Southwire</div>
+                    <div class="work-card-sub">Corporate Interview Series</div>
+                </div>
+            </a>
+            <!-- 4. Hometown Tragedy -->
+            <a class="work-card" href="https://youtu.be/gZeSRpGceHY" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/gZeSRpGceHY/hqdefault.jpg" alt="Hometown Tragedy" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Hometown Tragedy</div>
+                    <div class="work-card-sub">Documentary Film</div>
+                </div>
+            </a>
+            <!-- 5. Wyda -->
+            <a class="work-card" href="https://youtu.be/TRMaOtRP7Gc" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/TRMaOtRP7Gc/hqdefault.jpg" alt="Wyda" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Wyda</div>
+                    <div class="work-card-sub">Brand Film</div>
+                </div>
+            </a>
+            <!-- 6. Richard Kenya -->
+            <a class="work-card" href="https://youtu.be/OslqWR5VaSU" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/OslqWR5VaSU/hqdefault.jpg" alt="Richard Kenya" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Richard Kenya</div>
+                    <div class="work-card-sub">Documentary Portrait</div>
+                </div>
+            </a>
+            <!-- 7. Habitat for Humanity -->
+            <a class="work-card" href="https://www.youtube.com/watch?v=wZ3oc8ENr1M" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/wZ3oc8ENr1M/hqdefault.jpg" alt="Habitat for Humanity" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Habitat for Humanity</div>
+                    <div class="work-card-sub">Nonprofit Campaign Film</div>
+                </div>
+            </a>
+            <!-- 8. Doug Middleton -->
+            <a class="work-card" href="https://youtu.be/ToAhPCVtzCI" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/ToAhPCVtzCI/hqdefault.jpg" alt="Doug Middleton" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Doug Middleton</div>
+                    <div class="work-card-sub">Athlete Profile</div>
+                </div>
+            </a>
         </div>
     </div>
 </section>
@@ -236,7 +317,9 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <section class="map-section">
     <div class="container">
         <div class="section-label fade-up">Where We've Worked</div>
-        <div class="map-placeholder fade-up">Location Map — PNG Placeholder</div>
+        <div class="map-image-wrapper fade-up">
+            <img src="MXEFILMS_Work Locations.png" alt="MXE Films Work Locations" class="map-image"/>
+        </div>
         <p class="map-caption fade-up"><strong>Based in Charlotte, NC</strong> &nbsp;·&nbsp; Available worldwide</p>
     </div>
 </section>
