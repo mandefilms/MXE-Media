@@ -45,7 +45,8 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 /* ── HERO ── */
 .prod-hero { padding: 140px 0 60px 0; text-align: center; background: var(--white); }
 .prod-hero-tag { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 36px; }
-.prod-hero-image { width: 100%; max-width: 900px; height: 420px; margin: 0 auto; background: var(--light-grey); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); }
+.prod-hero-image { width: 100%; max-width: 900px; height: 420px; margin: 0 auto; overflow: hidden; }
+.prod-hero-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* ── EQUIPMENT BAND ── */
 .equipment-band { padding: 28px 0; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); text-align: center; background: var(--white); }
@@ -82,11 +83,11 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .deliver-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
 
 /* ── ON SET PHOTO ── */
-.deliver-thumb { width: 120px; height: auto; display: block; margin-top: 20px; }
+.deliver-thumb { width: 180px; height: auto; display: block; margin-top: 20px; }
 
 /* ── PHOTO STRIP ── */
 .photo-strip { width: 100%; line-height: 0; display: flex; justify-content: center; padding: 20px 0; }
-.photo-strip-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; max-width: 580px; width: 100%; }
+.photo-strip-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; width: 100%; }
 .photo-strip-cell { aspect-ratio: 16 / 9; overflow: hidden; }
 .photo-strip-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -162,7 +163,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <section class="prod-hero">
     <div class="container">
         <p class="prod-hero-tag fade-up">| Production Services |</p>
-        <div class="prod-hero-image fade-up">Hero Image — On-Set Production Photo</div>
+        <div class="prod-hero-image fade-up"><img src="mxe_website_hero_photo.jpg" alt="MXE Media on-location production"/></div>
     </div>
 </section>
 
