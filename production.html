@@ -82,13 +82,12 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .deliver-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
 
 /* ── ON SET PHOTO ── */
-.deliver-photo-wrapper { width: 100%; height: 400px; overflow: hidden; margin-bottom: 48px; }
-.deliver-photo { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+.deliver-thumb { width: 120px; height: auto; display: block; margin-top: 20px; }
 
 /* ── PHOTO STRIP ── */
-.photo-strip { width: 100%; overflow: hidden; line-height: 0; }
-.photo-strip-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 3px; }
-.photo-strip-cell { aspect-ratio: 1 / 1; overflow: hidden; }
+.photo-strip { width: 100%; line-height: 0; display: flex; justify-content: center; padding: 20px 0; }
+.photo-strip-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 1px; max-width: 580px; width: 100%; }
+.photo-strip-cell { aspect-ratio: 16 / 9; overflow: hidden; }
 .photo-strip-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .deliver-prose h3 { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; color: var(--black); }
@@ -132,7 +131,6 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 }
 @media (max-width: 600px) {
     .photo-strip-grid { grid-template-columns: repeat(3, 1fr); }
-    .deliver-photo-wrapper { height: 260px; }
 }
 @media (max-width: 600px) {
     .container { padding: 0 24px; }
@@ -297,9 +295,6 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <section class="deliver-section">
     <div class="container">
         <div class="section-label fade-up">On Set</div>
-        <div class="deliver-photo-wrapper fade-up">
-            <img src="Photo (5).jpg" alt="On set production" class="deliver-photo"/>
-        </div>
         <div class="deliver-layout fade-up">
 
             <div class="deliver-prose">
@@ -307,6 +302,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                 <p>We operate as a field production team supporting marketing agencies, production companies, and in-house creative teams. We work from your creative brief, shot list, or storyboard — or develop one with you based on your objectives.</p>
                 <p>Our two-person team handles directing, camera operation, lighting, audio, drone, and DIT simultaneously — with no communication lag between creative decision and technical execution. One team, one vision, zero confusion.</p>
                 <p>We're experienced with approval workflows, brand compliance reviews, remote direction via video link, and same-day turnaround when the timeline requires it.</p>
+                <img src="Photo (5).jpg" alt="On set production" class="deliver-thumb"/>
             </div>
 
             <div class="deliver-cards">
