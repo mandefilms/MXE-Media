@@ -79,7 +79,17 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .deliver-section .section-label { color: var(--dark-grey); }
 .deliver-section .section-label::after { background: rgba(0,0,0,0.1); }
 
-.deliver-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.deliver-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: stretch; }
+
+/* ── ON SET PHOTO ── */
+.deliver-photo-wrapper { width: 100%; height: 400px; overflow: hidden; margin-bottom: 48px; }
+.deliver-photo { width: 100%; height: 100%; object-fit: cover; object-position: center center; display: block; }
+
+/* ── PHOTO STRIP ── */
+.photo-strip { width: 100%; overflow: hidden; line-height: 0; }
+.photo-strip-grid { display: grid; grid-template-columns: repeat(9, 1fr); gap: 3px; }
+.photo-strip-cell { aspect-ratio: 1 / 1; overflow: hidden; }
+.photo-strip-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .deliver-prose h3 { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 16px; color: var(--black); }
 .deliver-prose p { font-family: var(--font-body); font-size: 14px; font-weight: 400; line-height: 1.75; color: var(--dark-grey); margin-bottom: 14px; }
@@ -118,6 +128,11 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     .services-grid { grid-template-columns: 1fr; }
     .service-item:nth-child(odd) { border-right: none; }
     .deliver-layout { grid-template-columns: 1fr; gap: 36px; }
+    .photo-strip-grid { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 600px) {
+    .photo-strip-grid { grid-template-columns: repeat(3, 1fr); }
+    .deliver-photo-wrapper { height: 260px; }
 }
 @media (max-width: 600px) {
     .container { padding: 0 24px; }
@@ -254,10 +269,37 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     </div>
 </section>
 
+<!-- PHOTO STRIP DIVIDER -->
+<div class="photo-strip">
+    <div class="photo-strip-grid">
+        <div class="photo-strip-cell"><img src="Photo (1).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (2).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (6).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (8).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (9).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (10).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (11).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (12).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (13).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (15).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (17).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (18).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (19).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (21).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (22).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (24).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (26).jpg" alt=""/></div>
+        <div class="photo-strip-cell"><img src="Photo (27).jpg" alt=""/></div>
+    </div>
+</div>
+
 <!-- HOW WE WORK (detail) + WHAT WE DELIVER ON SET -->
 <section class="deliver-section">
     <div class="container">
         <div class="section-label fade-up">On Set</div>
+        <div class="deliver-photo-wrapper fade-up">
+            <img src="Photo (5).jpg" alt="On set production" class="deliver-photo"/>
+        </div>
         <div class="deliver-layout fade-up">
 
             <div class="deliver-prose">
