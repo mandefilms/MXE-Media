@@ -30,7 +30,7 @@ body { font-family: var(--font-body); color: var(--black); background: var(--whi
 .container { max-width: 1140px; margin: 0 auto; padding: 0 40px; }
 
 .section-label {
-    font-family: var(--font-body); font-size: 11px; font-weight: 600;
+    font-family: var(--font-body); font-size: 13px; font-weight: 600;
     letter-spacing: 3.5px; text-transform: uppercase;
     display: flex; align-items: center; gap: 16px; margin-bottom: 40px;
 }
@@ -104,7 +104,7 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .trusted-bar { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 16px 0; overflow: hidden; position: relative; white-space: nowrap; }
 .trusted-bar-inner { display: flex; align-items: center; gap: 0; animation: scrollTrusted 25s linear infinite; width: max-content; }
 .trusted-bar-inner:hover { animation-play-state: paused; }
-@keyframes scrollTrusted { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+@keyframes scrollTrusted { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
 .trusted-item { display: flex; align-items: center; gap: 0; }
 .trusted-label { font-family: var(--font-body); font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--amber); margin-right: 20px; }
 .trusted-name { font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.5); transition: color 0.3s; }
@@ -112,7 +112,7 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .trusted-dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.2); margin: 0 20px; flex-shrink: 0; }
 
 /* ── CONTACT CTA ── */
-.contact-section { padding: 100px 0; background: var(--white); text-align: center; }
+.contact-section { padding: 100px 0; background: #f5f4f1; text-align: center; }
 .contact-heading { font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; color: var(--black); margin-bottom: 20px; }
 .contact-sub { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--dark-grey); margin-bottom: 12px; }
 .contact-email { font-family: var(--font-body); font-size: 14px; font-weight: 400; color: var(--mid-grey); text-decoration: none; margin-bottom: 36px; display: inline-block; transition: color 0.3s ease; }
@@ -305,25 +305,6 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     </div>
 </section>
 
-<!-- TESTIMONIAL -->
-<section class="testimonial-section fade-up">
-    <div class="container">
-        <p class="testimonial-quote">"The footage we got from MXE was the best footage our Executive Producer had ever seen come from a remote crew."</p>
-        <p class="testimonial-attr">Jimmy Cavalieri — Agency Producer</p>
-    </div>
-</section>
-
-<!-- MAP -->
-<section class="map-section">
-    <div class="container">
-        <div class="section-label fade-up">Where We've Worked</div>
-        <div class="map-image-wrapper fade-up">
-            <img src="MXEFILMS_Work Locations.png" alt="MXE Films Work Locations" class="map-image"/>
-        </div>
-        <p class="map-caption fade-up"><strong>Based in Charlotte, NC</strong> &nbsp;·&nbsp; Available worldwide</p>
-    </div>
-</section>
-
 <!-- TRUSTED BY SCROLLING BAR -->
 <div class="trusted-bar">
     <div class="trusted-bar-inner">
@@ -350,14 +331,33 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     </div>
 </div>
 
+<!-- TESTIMONIAL -->
+<section class="testimonial-section fade-up">
+    <div class="container">
+        <p class="testimonial-quote">"The footage we got from MXE was the best footage our Executive Producer had ever seen come from a remote crew."</p>
+        <p class="testimonial-attr">Jimmy Cavalieri — Agency Producer</p>
+    </div>
+</section>
+
+<!-- MAP -->
+<section class="map-section">
+    <div class="container">
+        <div class="section-label fade-up">Where We've Worked</div>
+        <div class="map-image-wrapper fade-up">
+            <img src="MXEFILMS_Work Locations.png" alt="MXE Films Work Locations" class="map-image"/>
+        </div>
+        <p class="map-caption fade-up"><strong>Based in Charlotte, NC</strong> &nbsp;·&nbsp; Available worldwide</p>
+    </div>
+</section>
+
 <!-- CONTACT CTA -->
 <section class="contact-section">
     <div class="container fade-up">
         <p class="contact-heading">Let's Work Together</p>
         <p class="contact-sub">Tell us about your project.</p>
-        <a href="mailto:production@mxemedia.com" class="contact-email">production@mxemedia.com</a>
+        <a href="mailto:production@mandefilms.com" class="contact-email">production@mandefilms.com</a>
         <br/><br/>
-        <a href="mailto:production@mxemedia.com" class="cta-button">Contact Us</a>
+        <a href="mailto:production@mandefilms.com" class="cta-button">Contact Us</a>
     </div>
 </section>
 
