@@ -69,6 +69,7 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .work-section .section-label { color: rgba(255,255,255,0.5); }
 .work-section .section-label::after { background: rgba(255,255,255,0.15); }
 .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.work-grid-row-label { grid-column: 1 / -1; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); padding-top: 12px; }
 .work-card { position: relative; aspect-ratio: 4/3; background: var(--charcoal); overflow: hidden; cursor: pointer; }
 .work-card-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; transition: background 0.4s ease; }
 .work-card:hover .work-card-overlay { background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.85) 100%); }
@@ -291,14 +292,15 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                 </div>
             </a>
             <!-- 4. Hometown Tragedy -->
-            <a class="work-card" href="https://youtu.be/gZeSRpGceHY" target="_blank" rel="noopener">
-                <img src="https://img.youtube.com/vi/gZeSRpGceHY/hqdefault.jpg" alt="Hometown Tragedy" class="work-card-thumb"/>
+            <a class="work-card" href="https://youtu.be/7svck2cHq_g" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/7svck2cHq_g/hqdefault.jpg" alt="Hometown Tragedy" class="work-card-thumb"/>
                 <div class="work-card-overlay">
                     <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
                     <div class="work-card-title">Hometown Tragedy</div>
                     <div class="work-card-sub">Documentary Film</div>
                 </div>
             </a>
+            <div class="work-grid-row-label">Original Productions</div>
             <!-- 5. Wyda -->
             <a class="work-card" href="https://youtu.be/TRMaOtRP7Gc" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/TRMaOtRP7Gc/hqdefault.jpg" alt="Wyda" class="work-card-thumb"/>
