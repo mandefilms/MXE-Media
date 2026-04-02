@@ -69,6 +69,7 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .work-section .section-label { color: rgba(255,255,255,0.5); }
 .work-section .section-label::after { background: rgba(255,255,255,0.15); }
 .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.work-grid-row-label { grid-column: 1 / -1; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); padding-top: 12px; }
 .work-card { position: relative; aspect-ratio: 4/3; background: var(--charcoal); overflow: hidden; cursor: pointer; }
 .work-card-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(0,0,0,0.75) 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 18px; transition: background 0.4s ease; }
 .work-card:hover .work-card-overlay { background: linear-gradient(180deg, transparent 20%, rgba(0,0,0,0.85) 100%); }
@@ -130,8 +131,8 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 .footer-links a:hover { color: rgba(255,255,255,0.6); }
 
 /* ── HERO IMAGE ── */
-.hero-image-wrapper { width: 100%; max-width: 720px; height: 380px; margin: 0 auto 48px auto; overflow: hidden; }
-.hero-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+.hero-image-wrapper { width: 100%; max-width: 720px; margin: 0 auto 48px auto; }
+.hero-image { width: 100%; height: auto; display: block; }
 
 /* ── MAP IMAGE ── */
 .map-image-wrapper { width: 100%; max-width: 800px; margin: 0 auto 30px auto; overflow: hidden; }
@@ -166,7 +167,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
     .hero { padding: 110px 0 60px 0; }
     .hero-statement { font-size: 20px; }
-    .hero-image-wrapper { height: 240px; }
+
     .work-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
     .testimonial-quote { font-size: 20px; }
     .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
@@ -192,7 +193,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     <div class="container">
         <p class="hero-tag fade-up"><span class="on-location">On Location</span> &nbsp;·&nbsp; Interviews &nbsp;·&nbsp; Documentary &nbsp;·&nbsp; Branded &nbsp;·&nbsp; B-Roll &nbsp;·&nbsp; Aerial</p>
         <div class="hero-image-wrapper fade-up">
-            <img src="mxe_website_hero_photo.jpg" alt="MXE Media on-location production" class="hero-image"/>
+            <img src="M and L Interview Wide.png" alt="MXE Media on-location production" class="hero-image"/>
         </div>
         <p class="hero-statement fade-up">
             MXE Media is an on-location video production team that shoots documentary style multicam interview and b-roll content for agencies, brands, and media companies across the US and London.
@@ -253,7 +254,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <!-- TESTIMONIAL -->
 <section class="testimonial-section fade-up">
     <div class="container">
-        <p class="testimonial-quote">"The footage we got from MXE was the best footage our Executive Producer had ever seen come from a remote crew."</p>
+        <p class="testimonial-quote">"I assign work to freelancers from all around the world and they are among the best! They had great communication; they ask the right questions and they took initiative. I would 100% recommend them."</p>
         <p class="testimonial-attr">Jimmy Cavalieri — Agency Producer</p>
     </div>
 </section>
@@ -263,16 +264,8 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     <div class="container">
         <div class="section-label fade-up">Recent Collaboration Work</div>
         <div class="work-grid fade-up">
-            <!-- 1. Securitas -->
-            <a class="work-card" href="https://youtu.be/SGStI013AKY" target="_blank" rel="noopener">
-                <img src="https://img.youtube.com/vi/SGStI013AKY/hqdefault.jpg" alt="Securitas" class="work-card-thumb"/>
-                <div class="work-card-overlay">
-                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
-                    <div class="work-card-title">Securitas</div>
-                    <div class="work-card-sub">Corporate Documentary</div>
-                </div>
-            </a>
-            <!-- 2. Popular Mechanics -->
+            <div class="work-grid-row-label">Collaborations</div>
+            <!-- Popular Mechanics -->
             <a class="work-card" href="https://youtu.be/gZeSRpGceHY" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/gZeSRpGceHY/hqdefault.jpg" alt="Popular Mechanics" class="work-card-thumb"/>
                 <div class="work-card-overlay">
@@ -281,7 +274,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                     <div class="work-card-sub">Branded Editorial Content</div>
                 </div>
             </a>
-            <!-- 3. Southwire -->
+            <!-- Southwire -->
             <a class="work-card" href="https://youtu.be/_k-718ua3IE" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/_k-718ua3IE/hqdefault.jpg" alt="Southwire" class="work-card-thumb"/>
                 <div class="work-card-overlay">
@@ -290,16 +283,35 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                     <div class="work-card-sub">Corporate Interview Series</div>
                 </div>
             </a>
-            <!-- 4. Hometown Tragedy -->
-            <a class="work-card" href="https://youtu.be/gZeSRpGceHY" target="_blank" rel="noopener">
-                <img src="https://img.youtube.com/vi/gZeSRpGceHY/hqdefault.jpg" alt="Hometown Tragedy" class="work-card-thumb"/>
+            <!-- Hometown Tragedy -->
+            <a class="work-card" href="https://youtu.be/7svck2cHq_g" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/7svck2cHq_g/hqdefault.jpg" alt="Hometown Tragedy" class="work-card-thumb"/>
                 <div class="work-card-overlay">
                     <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
                     <div class="work-card-title">Hometown Tragedy</div>
                     <div class="work-card-sub">Documentary Film</div>
                 </div>
             </a>
-            <!-- 5. Wyda -->
+            <!-- Doug Middleton -->
+            <a class="work-card" href="https://youtu.be/ToAhPCVtzCI" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/ToAhPCVtzCI/hqdefault.jpg" alt="Doug Middleton" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Doug Middleton</div>
+                    <div class="work-card-sub">Athlete Profile</div>
+                </div>
+            </a>
+            <div class="work-grid-row-label">Original Productions</div>
+            <!-- Securitas -->
+            <a class="work-card" href="https://youtu.be/SGStI013AKY" target="_blank" rel="noopener">
+                <img src="https://img.youtube.com/vi/SGStI013AKY/hqdefault.jpg" alt="Securitas" class="work-card-thumb"/>
+                <div class="work-card-overlay">
+                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+                    <div class="work-card-title">Securitas</div>
+                    <div class="work-card-sub">Corporate Documentary</div>
+                </div>
+            </a>
+            <!-- Wyda -->
             <a class="work-card" href="https://youtu.be/TRMaOtRP7Gc" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/TRMaOtRP7Gc/hqdefault.jpg" alt="Wyda" class="work-card-thumb"/>
                 <div class="work-card-overlay">
@@ -308,7 +320,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                     <div class="work-card-sub">Brand Film</div>
                 </div>
             </a>
-            <!-- 6. Richard Kenya -->
+            <!-- Richard Kenya -->
             <a class="work-card" href="https://youtu.be/OslqWR5VaSU" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/OslqWR5VaSU/hqdefault.jpg" alt="Richard Kenya" class="work-card-thumb"/>
                 <div class="work-card-overlay">
@@ -317,22 +329,13 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                     <div class="work-card-sub">Documentary Portrait</div>
                 </div>
             </a>
-            <!-- 7. Habitat for Humanity -->
+            <!-- Habitat for Humanity -->
             <a class="work-card" href="https://www.youtube.com/watch?v=wZ3oc8ENr1M" target="_blank" rel="noopener">
                 <img src="https://img.youtube.com/vi/wZ3oc8ENr1M/hqdefault.jpg" alt="Habitat for Humanity" class="work-card-thumb"/>
                 <div class="work-card-overlay">
                     <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
                     <div class="work-card-title">Habitat for Humanity</div>
                     <div class="work-card-sub">Nonprofit Campaign Film</div>
-                </div>
-            </a>
-            <!-- 8. Doug Middleton -->
-            <a class="work-card" href="https://youtu.be/ToAhPCVtzCI" target="_blank" rel="noopener">
-                <img src="https://img.youtube.com/vi/ToAhPCVtzCI/hqdefault.jpg" alt="Doug Middleton" class="work-card-thumb"/>
-                <div class="work-card-overlay">
-                    <div class="work-card-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
-                    <div class="work-card-title">Doug Middleton</div>
-                    <div class="work-card-sub">Athlete Profile</div>
                 </div>
             </a>
         </div>
