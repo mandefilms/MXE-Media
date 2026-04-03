@@ -45,12 +45,12 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 /* ── HERO ── */
 .prod-hero { padding: 140px 0 30px 0; text-align: center; background: var(--white); }
 .prod-hero-tag { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 36px; }
-.prod-hero-image { width: 100%; max-width: 700px; margin: 0 auto; }
+.prod-hero-image { width: 100%; max-width: 480px; margin: 0 auto; }
+.prod-services-label { color: #e02020; font-weight: 600; }
 .prod-hero-image img { width: 100%; height: auto; display: block; }
 
-/* ── EQUIPMENT BAND ── */
-.equipment-band { padding: 28px 0; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); text-align: center; background: var(--white); }
-.equipment-text { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-grey); }
+/* ── SECTION ARROW ── */
+.section-arrow { text-align: center; padding: 20px 0 4px 0; font-size: 28px; font-weight: 600; color: #d4482a; line-height: 1; }
 
 /* ── HOW WE WORK ── */
 .process-section { padding: 80px 0 110px 0; background: var(--white); }
@@ -162,8 +162,8 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <!-- HERO -->
 <section class="prod-hero">
     <div class="container">
-        <p class="prod-hero-tag fade-up">| Production Services |</p>
-        <div class="prod-hero-image fade-up"><img src="M and L Interview Wide.png" alt="MXE Media on-location production"/></div>
+        <p class="prod-hero-tag fade-up"><span class="prod-services-label">Production Services</span> &nbsp;·&nbsp; Sony Cinema Cameras &nbsp;·&nbsp; Professional Audio &nbsp;·&nbsp; LED Lighting &nbsp;·&nbsp; Part 107 Drone &nbsp;·&nbsp; Teleprompter &nbsp;·&nbsp; DIT Workflow</p>
+        <div class="prod-hero-image fade-up"><img src="mxe_website_hero_photo.jpg" alt="MXE Media on-location production"/></div>
     </div>
 </section>
 
@@ -171,18 +171,18 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <section class="process-section">
     <div class="container">
         <div class="section-label fade-up">How We Work</div>
-        <div class="process-grid fade-up">
-            <div class="process-step">
+        <div class="process-grid">
+            <div class="process-step fade-up" style="transition-delay: 0s">
                 <div class="process-number">01</div>
                 <div class="process-title">Brief</div>
                 <p class="process-desc">You send us the project details, brand guidelines, and delivery specs. We review everything and confirm the approach before we arrive.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step fade-up" style="transition-delay: 0.14s">
                 <div class="process-number">02</div>
                 <div class="process-title">Produce</div>
                 <p class="process-desc">We show up with a complete equipment package, adapt to the environment, and capture exactly what you need: interviews, b-roll, aerials, or all three.</p>
             </div>
-            <div class="process-step">
+            <div class="process-step fade-up" style="transition-delay: 0.28s">
                 <div class="process-number">03</div>
                 <div class="process-title">Deliver</div>
                 <p class="process-desc">Footage delivered to your specifications: on drives, cloud upload, or direct transfer. Organized, labeled, and ready for your edit or ours.</p>
@@ -191,20 +191,16 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     </div>
 </section>
 
-<!-- EQUIPMENT BAND -->
-<div class="equipment-band">
-    <p class="equipment-text">
-        Sony Cinema Cameras &nbsp;·&nbsp; Professional Audio &nbsp;·&nbsp; LED Lighting &nbsp;·&nbsp; Part 107 Drone &nbsp;·&nbsp; Teleprompter &nbsp;·&nbsp; DIT Workflow
-    </p>
-</div>
+<!-- SECTION ARROW -->
+<div class="section-arrow fade-up">&#8595;</div>
 
 <!-- SERVICES & OFFERINGS (2-column IKAL style) -->
 <section class="services-section">
     <div class="container">
         <div class="section-label fade-up">Services &amp; Offerings</div>
-        <div class="services-grid fade-up">
+        <div class="services-grid">
 
-            <div class="service-item">
+            <div class="service-item fade-up" style="transition-delay: 0s">
                 <h3>Multicam Interview Production</h3>
                 <p>Two and three-camera interview setups with matched Sony cinema cameras. Full lighting, professional audio, and teleprompter available for every shoot.</p>
                 <ul>
@@ -214,7 +210,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                 </ul>
             </div>
 
-            <div class="service-item">
+            <div class="service-item fade-up" style="transition-delay: 0.1s">
                 <h3>Documentary-Style Content</h3>
                 <p>Observational and narrative-driven shooting for brands and organizations that need authentic, character-focused stories captured in real environments.</p>
                 <ul>
@@ -224,7 +220,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                 </ul>
             </div>
 
-            <div class="service-item">
+            <div class="service-item fade-up" style="transition-delay: 0.2s">
                 <h3>B-Roll &amp; Cinematic Coverage</h3>
                 <p>Supplemental footage shot to match your existing brand look. Facilities, products, processes, people at work, and environmental shots — all matched to your brief.</p>
                 <ul>
@@ -234,7 +230,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                 </ul>
             </div>
 
-            <div class="service-item">
+            <div class="service-item fade-up" style="transition-delay: 0.3s">
                 <h3>Aerial &amp; Drone</h3>
                 <p>FAA Part 107 certified drone operation for aerial establishing shots, facility overviews, construction progress, real estate, and large-scale environmental coverage.</p>
                 <ul>
@@ -244,7 +240,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                 </ul>
             </div>
 
-            <div class="service-item">
+            <div class="service-item fade-up" style="transition-delay: 0.4s">
                 <h3>Branded Content &amp; Social</h3>
                 <p>Short-form and long-form content produced to your brand standards for web, social platforms, internal communications, and marketing campaigns.</p>
                 <ul>
@@ -254,7 +250,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                 </ul>
             </div>
 
-            <div class="service-item">
+            <div class="service-item fade-up" style="transition-delay: 0.5s">
                 <h3>Remote &amp; Travel Production</h3>
                 <p>Field-ready production team with experience across 15+ countries and every type of environment — from boardrooms to construction sites to rural communities.</p>
                 <ul>
@@ -269,7 +265,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 </section>
 
 <!-- PHOTO STRIP DIVIDER -->
-<div class="photo-strip">
+<div class="photo-strip fade-up">
     <div class="photo-strip-grid">
         <div class="photo-strip-cell"><img src="Photo (1).jpg" alt=""/></div>
         <div class="photo-strip-cell"><img src="Photo (2).jpg" alt=""/></div>
