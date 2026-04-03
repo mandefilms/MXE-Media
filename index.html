@@ -38,9 +38,12 @@ body { font-family: var(--font-body); color: var(--black); background: var(--whi
 
 .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
 .fade-up.visible { opacity: 1; transform: translateY(0); }
+.fade-load { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-load.visible { opacity: 1; transform: translateY(0); }
 
 /* ── NAV ── */
-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s ease; }
+@keyframes navSlideDown { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: translateY(0); } }
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: rgba(255,255,255,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0,0,0,0.06); transition: box-shadow 0.3s ease; opacity: 0; animation: navSlideDown 0.55s ease 0.05s forwards; }
 nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .nav-inner { max-width: 1140px; margin: 0 auto; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; }
 .nav-logo { font-family: var(--font-body); font-size: 15px; font-weight: 600; letter-spacing: 5px; text-transform: uppercase; color: var(--black); text-decoration: none; }
@@ -68,6 +71,14 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .work-section { background: var(--off-black); padding: 70px 0 80px 0; color: var(--white); }
 .work-section .section-label { color: rgba(255,255,255,0.5); }
 .work-section .section-label::after { background: rgba(255,255,255,0.15); }
+.work-header-row { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 40px; }
+.work-section-title { font-family: var(--font-body); font-size: 13px; font-weight: 600; letter-spacing: 3.5px; text-transform: uppercase; color: rgba(255,255,255,0.5); padding-top: 3px; }
+.work-header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.work-subtitles { display: flex; flex-direction: column; align-items: flex-end; gap: 3px; }
+.work-subtitle { font-family: var(--font-body); font-size: 10px; font-weight: 300; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+.yt-channel-btn { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.65); text-decoration: none; padding: 9px 16px; border: 1px solid rgba(255,255,255,0.2); transition: all 0.3s ease; }
+.yt-channel-btn:hover { color: var(--white); border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.05); }
+.yt-channel-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
 .work-grid-row-label { grid-column: 1 / -1; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); padding-top: 12px; }
 .work-card { position: relative; aspect-ratio: 4/3; background: var(--charcoal); overflow: hidden; cursor: pointer; }
@@ -95,12 +106,10 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .testimonial-attr { font-family: var(--font-body); font-size: 12px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; color: var(--mid-grey); }
 
 /* ── MAP ── */
-.map-section { padding: 70px 0 60px 0; background: var(--white); color: var(--black); text-align: center; }
+.map-section { padding: 40px 0 48px 0; background: var(--white); color: var(--black); text-align: center; }
 .map-section .section-label { color: var(--dark-grey); }
 .map-section .section-label::after { background: rgba(0,0,0,0.1); }
-.map-placeholder { width: 100%; max-width: 800px; height: 400px; margin: 0 auto 30px auto; background: var(--light-grey); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); }
-.map-caption { font-family: var(--font-body); font-size: 13px; font-weight: 400; color: var(--mid-grey); letter-spacing: 0.5px; }
-.map-caption strong { color: var(--black); font-weight: 500; }
+.map-cta { padding-top: 28px; }
 
 /* ── TRUSTED BY SCROLLING BAR ── */
 .trusted-bar { background: var(--black); border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 16px 0; overflow: hidden; position: relative; white-space: nowrap; }
@@ -191,14 +200,14 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <!-- HERO -->
 <section class="hero">
     <div class="container">
-        <p class="hero-tag fade-up"><span class="on-location">On Location</span> &nbsp;·&nbsp; Interviews &nbsp;·&nbsp; Documentary &nbsp;·&nbsp; Branded &nbsp;·&nbsp; B-Roll &nbsp;·&nbsp; Aerial</p>
-        <div class="hero-image-wrapper fade-up">
+        <p class="hero-tag fade-load"><span class="on-location">On Location</span> &nbsp;·&nbsp; Interviews &nbsp;·&nbsp; Documentary &nbsp;·&nbsp; Branded &nbsp;·&nbsp; B-Roll &nbsp;·&nbsp; Aerial</p>
+        <div class="hero-image-wrapper fade-load">
             <img src="M and L Interview Wide.png" alt="MXE Media on-location production" class="hero-image"/>
         </div>
-        <p class="hero-statement fade-up">
+        <p class="hero-statement fade-load">
             MXE Media is an on-location video production team that shoots documentary style multicam interview and b-roll content for agencies, brands, and media companies across the US and London.
         </p>
-        <div class="social-icons fade-up">
+        <div class="social-icons fade-load">
             <a href="#" aria-label="Instagram"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
             <a href="https://www.youtube.com/channel/UCGzAvajYB-qJvDd-Q_cXfoA" target="_blank" rel="noopener" aria-label="YouTube"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg></a>
         </div>
@@ -206,7 +215,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 </section>
 
 <!-- TRUSTED BY SCROLLING BAR -->
-<div class="trusted-bar">
+<div class="trusted-bar fade-load">
     <div class="trusted-bar-inner">
         <div class="trusted-item">
             <span class="trusted-label">Trusted By</span><span class="trusted-dot"></span>
@@ -252,7 +261,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 </div>
 
 <!-- TESTIMONIAL -->
-<section class="testimonial-section fade-up">
+<section class="testimonial-section fade-load">
     <div class="container">
         <p class="testimonial-quote">"I assign work to freelancers from all around the world and they are among the best! They had great communication; they ask the right questions and they took initiative. I would 100% recommend them."</p>
         <p class="testimonial-attr">Jimmy Cavalieri — Agency Producer</p>
@@ -262,7 +271,19 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <!-- RECENT WORK -->
 <section class="work-section">
     <div class="container">
-        <div class="section-label fade-up">Recent Collaboration Work</div>
+        <div class="work-header-row fade-up">
+            <h2 class="work-section-title">Recent Work</h2>
+            <div class="work-header-right">
+                <div class="work-subtitles">
+                    <span class="work-subtitle">Collaborations and Shoot Only</span>
+                    <span class="work-subtitle">Original Productions</span>
+                </div>
+                <a href="https://www.youtube.com/channel/UCGzAvajYB-qJvDd-Q_cXfoA" target="_blank" rel="noopener" class="yt-channel-btn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg>
+                    Our YouTube Channel
+                </a>
+            </div>
+        </div>
         <div class="work-grid fade-up">
             <div class="work-grid-row-label">Collaborations</div>
             <!-- Popular Mechanics -->
@@ -373,18 +394,13 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
         <div class="map-image-wrapper fade-up">
             <img src="MXEFILMS_Work Locations.png" alt="MXE Films Work Locations" class="map-image"/>
         </div>
-        <p class="map-caption fade-up"><strong>Based in Charlotte, NC</strong> &nbsp;·&nbsp; Available worldwide</p>
-    </div>
-</section>
-
-<!-- CONTACT CTA -->
-<section class="contact-section">
-    <div class="container fade-up">
-        <p class="contact-heading">Let's Work Together</p>
-        <p class="contact-sub">Tell us about your project.</p>
-        <a href="mailto:production@mandefilms.com" class="contact-email">production@mandefilms.com</a>
-        <br/><br/>
-        <a href="mailto:production@mandefilms.com" class="cta-button">Contact Us</a>
+        <div class="map-cta fade-up">
+            <p class="contact-heading">Let's Work Together</p>
+            <p class="contact-sub">Tell us about your project.</p>
+            <a href="mailto:production@mandefilms.com" class="contact-email">production@mandefilms.com</a>
+            <br/><br/>
+            <a href="mailto:production@mandefilms.com" class="cta-button">Contact Us</a>
+        </div>
     </div>
 </section>
 
@@ -415,6 +431,19 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+
+// Sequenced page-load animations
+[
+    ['.hero-tag', 500],
+    ['.hero-image-wrapper', 600],
+    ['.hero-statement', 850],
+    ['.social-icons', 1050],
+    ['.trusted-bar', 2000],
+    ['.testimonial-section', 2500],
+].forEach(function(item) {
+    var el = document.querySelector(item[0]);
+    if (el) setTimeout(function() { el.classList.add('visible'); }, item[1]);
+});
 
 // Video modal
 const videoModal = document.getElementById('video-modal');
