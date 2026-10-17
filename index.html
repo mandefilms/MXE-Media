@@ -64,6 +64,7 @@ nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45d
 .hero { padding: 100px 0 0 0; text-align: center; background: var(--white); }
 .hero-tag { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .hero-tag .on-location { color: #e02020; }
+.hero-tag .tag-item { white-space: nowrap; }
 .hero-image-placeholder { width: 100%; max-width: 720px; height: 380px; margin: 0 auto 48px auto; background: var(--light-grey); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); overflow: hidden; }
 .hero-statement { font-family: var(--font-display); font-size: 22px; font-weight: 400; line-height: 1.65; color: var(--white); max-width: 760px; margin: 0 auto 24px auto; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
 .hero-statement strong { font-weight: 500; color: var(--black); }
@@ -188,6 +189,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
     .nav-links a { display: inline-block; padding: 14px 0; font-size: 12px; }
     .nav-links a.active::after { bottom: 10px; }
     .hero { padding: 100px 0 0 0; }
+    .hero-tag { white-space: normal; line-height: 1.6; letter-spacing: 2.5px; }
     .hero-image { min-height: 0; }
     .hero-overlay { top: 20%; }
     .hero-statement { font-size: 12px; line-height: 1.35; margin-bottom: 6px; }
@@ -219,7 +221,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <!-- HERO -->
 <section class="hero">
     <div class="container">
-        <p class="hero-tag fade-load"><span class="on-location">Brand Films &amp; Photography</span> &nbsp;·&nbsp; Social Content &nbsp;·&nbsp; Video Editing &nbsp;·&nbsp; AI Integration &nbsp;·&nbsp; Embedded Team</p>
+        <p class="hero-tag fade-load"><span class="tag-item"><span class="on-location">Brand Films &amp; Photography</span>&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">Social Content&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">Video Editing&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">AI Integration&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">Embedded Team</span></p>
     </div>
     <div class="hero-image-wrapper fade-load">
         <img src="Finshed V1 mxe website photo.jpg" alt="MXE Media on-location production" class="hero-image"/>
