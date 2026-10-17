@@ -51,17 +51,30 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .nav-links a { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dark-grey); text-decoration: none; transition: color 0.3s ease; position: relative; }
 .nav-links a:hover, .nav-links a.active { color: var(--black); }
 .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--amber); }
+.nav-toggle { display: none; position: relative; width: 40px; height: 40px; margin-right: -8px; padding: 0; background: none; border: none; cursor: pointer; }
+.nav-toggle span { position: absolute; left: 9px; right: 9px; height: 1.5px; background: var(--black); transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-toggle span:nth-child(1) { top: 13px; }
+.nav-toggle span:nth-child(2) { top: 19px; }
+.nav-toggle span:nth-child(3) { top: 25px; }
+nav.open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ── HERO ── */
-.hero { padding: 140px 0 80px 0; text-align: center; background: var(--white); }
+.hero { padding: 100px 0 0 0; text-align: center; background: var(--white); }
 .hero-tag { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--mid-grey); margin-bottom: 36px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .hero-tag .on-location { color: #e02020; }
+.hero-tag .tag-item { white-space: nowrap; }
+.hero-tag-mobile { display: none; list-style: none; grid-template-rows: repeat(3, auto); grid-auto-flow: column; justify-content: center; column-gap: 16px; margin-bottom: 36px; text-align: left; font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; line-height: 1.6; text-transform: uppercase; color: var(--mid-grey); }
+.hero-tag-mobile li { position: relative; padding-left: 11px; }
+.hero-tag-mobile li::before { content: ''; position: absolute; left: 0; top: 0.8em; width: 3px; height: 3px; margin-top: -1.5px; border-radius: 50%; background: currentColor; }
+.hero-tag-mobile .on-location { color: #e02020; }
 .hero-image-placeholder { width: 100%; max-width: 720px; height: 380px; margin: 0 auto 48px auto; background: var(--light-grey); display: flex; align-items: center; justify-content: center; font-family: var(--font-body); font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-grey); overflow: hidden; }
-.hero-statement { font-family: var(--font-display); font-size: 26px; font-weight: 400; line-height: 1.65; color: var(--charcoal); max-width: 760px; margin: 0 auto 40px auto; }
+.hero-statement { font-family: var(--font-display); font-size: 22px; font-weight: 400; line-height: 1.65; color: var(--white); max-width: 760px; margin: 0 auto 24px auto; text-shadow: 0 2px 12px rgba(0,0,0,0.5); }
 .hero-statement strong { font-weight: 500; color: var(--black); }
 .social-icons { display: flex; justify-content: center; gap: 28px; }
-.social-icons a { width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; color: var(--mid-grey); text-decoration: none; transition: color 0.3s ease; font-size: 32px; }
-.social-icons a:hover { color: var(--black); }
+.social-icons a { width: 72px; height: 72px; display: flex; align-items: center; justify-content: center; color: var(--white); text-decoration: none; transition: color 0.3s ease; font-size: 32px; }
+.social-icons a:hover { color: var(--amber); }
 
 /* ── DESCRIPTOR BAND ── */
 .descriptor-band { padding: 28px 0; border-top: 1px solid rgba(0,0,0,0.06); border-bottom: 1px solid rgba(0,0,0,0.06); text-align: center; }
@@ -140,8 +153,10 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 .footer-links a:hover { color: rgba(255,255,255,0.6); }
 
 /* ── HERO IMAGE ── */
-.hero-image-wrapper { width: 100%; max-width: 720px; margin: 0 auto 48px auto; }
-.hero-image { width: 100%; height: auto; display: block; }
+.hero-image-wrapper { position: relative; width: 100%; margin: 0; }
+.hero-image { width: 100%; height: auto; min-height: 420px; object-fit: cover; display: block; }
+.hero-image-wrapper::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.4); }
+.hero-overlay { position: absolute; top: 40%; right: 0; bottom: 0; left: 0; z-index: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 0 24px; }
 
 /* ── MAP IMAGE ── */
 .map-image-wrapper { width: 100%; max-width: 800px; margin: 0 auto 30px auto; overflow: hidden; }
@@ -172,14 +187,43 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 @media (max-width: 600px) {
     .container { padding: 0 24px; }
     .nav-inner { padding: 0 24px; }
-    .nav-links { gap: 20px; }
-    .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
-    .hero { padding: 110px 0 60px 0; }
-    .hero-statement { font-size: 20px; }
+    .nav-toggle { display: block; }
+    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; padding: 8px 24px 16px; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 20px rgba(0,0,0,0.06); }
+    nav.open .nav-links { display: flex; }
+    .nav-links a { display: inline-block; padding: 14px 0; font-size: 12px; }
+    .nav-links a.active::after { bottom: 10px; }
+    .hero { padding: 84px 0 0 0; }
+    .hero-tag { display: none; }
+    .hero-tag-mobile { display: grid; font-size: 10px; line-height: 1.85; margin-bottom: 20px; }
+    .hero-image { min-height: 0; height: 38.4vw; }
+    .trusted-bar { padding: 9px 0; }
+    .trusted-label { font-size: 9px; letter-spacing: 2px; margin-right: 12px; }
+    .trusted-name { font-size: 9px; letter-spacing: 1.5px; }
+    .trusted-dot { width: 3px; height: 3px; margin: 0 12px; }
+    .hero-overlay { top: 20%; }
+    .hero-statement { font-size: 12px; line-height: 1.35; margin-bottom: 6px; }
+    .social-icons { gap: 12px; }
+    .social-icons a { width: 28px; height: 28px; }
+    .social-icons svg { width: 18px; height: 18px; }
 
     .work-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-    .testimonial-quote { font-size: 20px; }
+    .testimonial-section { padding: 44px 0 48px 0; }
+    .testimonial-quote { font-size: 20px; margin-bottom: 18px; }
     .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
+
+    /* Mobile polish */
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    .hero-statement { font-size: 13px; }
+    .social-icons { gap: 4px; }
+    .social-icons a { width: 40px; height: 36px; }
+    .testimonial-quote { text-wrap: balance; }
+    .work-section { padding: 52px 0 60px 0; }
+    .work-header-row { margin-bottom: 32px; }
+    .map-section { padding: 44px 0 52px 0; }
+    .map-image-wrapper { margin-bottom: 36px; }
+    .map-cta { padding-top: 0; }
+    .contact-email { margin-bottom: 8px; }
+    .footer-links a { display: inline-block; padding: 8px 4px; }
 }
 </style>
 </head>
@@ -189,6 +233,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <nav id="navbar">
     <div class="nav-inner">
         <a href="index.html" class="nav-logo">MXE Media</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="production.html">Production</a></li>
@@ -200,16 +245,26 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <!-- HERO -->
 <section class="hero">
     <div class="container">
-        <p class="hero-tag fade-load"><span class="on-location">On Location</span> &nbsp;·&nbsp; Interviews &nbsp;·&nbsp; Documentary &nbsp;·&nbsp; Branded &nbsp;·&nbsp; B-Roll &nbsp;·&nbsp; Aerial</p>
-        <div class="hero-image-wrapper fade-load">
-            <img src="Finshed V1 mxe website photo.jpg" alt="MXE Media on-location production" class="hero-image"/>
-        </div>
-        <p class="hero-statement fade-load">
-            MXE Media is an on-location video production team that shoots documentary style multicam interview and b-roll content for agencies, brands, and media companies across the US and London.
-        </p>
-        <div class="social-icons fade-load">
-            <a href="#" aria-label="Instagram"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
-            <a href="https://www.youtube.com/channel/UCGzAvajYB-qJvDd-Q_cXfoA" target="_blank" rel="noopener" aria-label="YouTube"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg></a>
+        <p class="hero-tag fade-load"><span class="tag-item"><span class="on-location">Brand Films &amp; Photography</span>&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">Social Content&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">Video Editing&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">AI Integration&nbsp;&nbsp;·</span>&nbsp; <span class="tag-item">Embedded Team</span></p>
+        <ul class="hero-tag-mobile fade-load">
+            <li><span class="on-location">Brand Films</span></li>
+            <li>Photography</li>
+            <li>Social Content</li>
+            <li>AI Integration</li>
+            <li>Embedded Team</li>
+            <li>Website Development</li>
+        </ul>
+    </div>
+    <div class="hero-image-wrapper fade-load">
+        <img src="Finshed V1 mxe website photo.jpg" alt="MXE Media on-location production" class="hero-image"/>
+        <div class="hero-overlay">
+            <p class="hero-statement fade-load">
+                In a world where high quality is standard,<br/>your voice is what people remember.
+            </p>
+            <div class="social-icons fade-load">
+                <a href="#" aria-label="Instagram"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg></a>
+                <a href="https://www.youtube.com/channel/UCGzAvajYB-qJvDd-Q_cXfoA" target="_blank" rel="noopener" aria-label="YouTube"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="4"/><polygon points="10,8 16,12 10,16" fill="currentColor" stroke="none"/></svg></a>
+            </div>
         </div>
     </div>
 </section>
@@ -427,10 +482,12 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up, .fade-load').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+document.getElementById('nav-toggle').addEventListener('click', function() { this.setAttribute('aria-expanded', document.getElementById('navbar').classList.toggle('open')); });
 
 // Sequenced page-load animations
 [
     ['.hero-tag', 500],
+    ['.hero-tag-mobile', 500],
     ['.hero-image-wrapper', 600],
     ['.hero-statement', 850],
     ['.social-icons', 1050],
