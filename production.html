@@ -4,7 +4,7 @@
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Production — MXE Media</title>
-<meta name="description" content="MXE Media production services. Multicam interviews, documentary content, b-roll, aerial, and branded content for agencies, brands, and media companies."/>
+<meta name="description" content="MXE Media production services. Multicam interviews, documentary content, b-roll, aerial, branded content, and multi-camera live streaming for agencies, brands, and media companies."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -76,6 +76,7 @@ nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45d
 .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); }
 .service-item { padding: 36px 32px; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; transition: background 0.3s ease; }
 .service-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.1); }
+.service-item:last-child:nth-child(odd) { grid-column: 1 / -1; border-right: none; }
 .service-item:hover { background: rgba(255,255,255,0.03); }
 .service-item h3 { font-family: var(--font-body); font-size: 13px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
 .service-item h3::before { content: ''; width: 6px; height: 6px; background: var(--amber); border-radius: 50%; flex-shrink: 0; }
@@ -270,6 +271,16 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
                     <li>Multi-city and multi-location shoots</li>
                     <li>International production</li>
                     <li>Remote direction and live monitoring</li>
+                </ul>
+            </div>
+
+            <div class="service-item fade-up" style="transition-delay: 0.6s">
+                <h3>Live Streaming</h3>
+                <p>Multi-camera live production streamed to YouTube and other platforms, with live vision mixing and switching so your audience sees a polished, broadcast-style feed.</p>
+                <ul>
+                    <li>Talks, keynotes and seminars</li>
+                    <li>Conferences and live events</li>
+                    <li>Live podcasts and panel shows</li>
                 </ul>
             </div>
 
