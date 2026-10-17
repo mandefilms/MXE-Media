@@ -51,6 +51,14 @@ nav.scrolled { box-shadow: 0 1px 20px rgba(0,0,0,0.06); }
 .nav-links a { font-family: var(--font-body); font-size: 11px; font-weight: 500; letter-spacing: 2.5px; text-transform: uppercase; color: var(--dark-grey); text-decoration: none; transition: color 0.3s ease; position: relative; }
 .nav-links a:hover, .nav-links a.active { color: var(--black); }
 .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1.5px; background: var(--amber); }
+.nav-toggle { display: none; position: relative; width: 40px; height: 40px; margin-right: -8px; padding: 0; background: none; border: none; cursor: pointer; }
+.nav-toggle span { position: absolute; left: 9px; right: 9px; height: 1.5px; background: var(--black); transition: transform 0.3s ease, opacity 0.3s ease; }
+.nav-toggle span:nth-child(1) { top: 13px; }
+.nav-toggle span:nth-child(2) { top: 19px; }
+.nav-toggle span:nth-child(3) { top: 25px; }
+nav.open .nav-toggle span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+nav.open .nav-toggle span:nth-child(2) { opacity: 0; }
+nav.open .nav-toggle span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
 
 /* ── HERO ── */
 .hero { padding: 100px 0 0 0; text-align: center; background: var(--white); }
@@ -174,8 +182,11 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 @media (max-width: 600px) {
     .container { padding: 0 24px; }
     .nav-inner { padding: 0 24px; }
-    .nav-links { gap: 20px; }
-    .nav-links a { font-size: 10px; letter-spacing: 1.5px; }
+    .nav-toggle { display: block; }
+    .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; gap: 0; padding: 8px 24px 16px; background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.06); box-shadow: 0 12px 20px rgba(0,0,0,0.06); }
+    nav.open .nav-links { display: flex; }
+    .nav-links a { display: inline-block; padding: 14px 0; font-size: 12px; }
+    .nav-links a.active::after { bottom: 10px; }
     .hero { padding: 100px 0 0 0; }
     .hero-image { min-height: 0; }
     .hero-overlay { top: 20%; }
@@ -196,6 +207,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 <nav id="navbar">
     <div class="nav-inner">
         <a href="index.html" class="nav-logo">MXE Media</a>
+        <button class="nav-toggle" id="nav-toggle" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
         <ul class="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="production.html">Production</a></li>
@@ -436,6 +448,7 @@ footer { padding: 32px 0; background: var(--black); border-top: 1px solid rgba(2
 const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, { threshold: 0.12 });
 document.querySelectorAll('.fade-up, .fade-load').forEach(el => observer.observe(el));
 window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20); });
+document.getElementById('nav-toggle').addEventListener('click', function() { this.setAttribute('aria-expanded', document.getElementById('navbar').classList.toggle('open')); });
 
 // Sequenced page-load animations
 [
